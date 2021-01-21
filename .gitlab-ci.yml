@@ -2,37 +2,12 @@ stages:
   - test
   - deploy
 
-# Uncomment these lines if you would use tdd using selenium in your project
-#UnitTest:
-#   image: python:3.7
-#   stage: test
-#   before_script:
-#     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-#     - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
-#     - pip install -r requirements.txt
-#     - python manage.py makemigrations
-#     - python manage.py migrate
-#     - apt-get update -qq && apt-get install -y -qq unzip
-#     - apt-get install -y google-chrome-stable
-#     - apt-get install -y xvfb
-#     - wget https://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip
-#     - unzip chromedriver_linux64.zip
-#     - python manage.py collectstatic --no-input
-#     - python manage.py runserver 8000 &
-#   when: on_success
-#   script:
-#     - coverage run manage.py test
-#     - coverage report -m
-
 test:
   image: python:3.7
   stage: test
   script:
-    # this configures Django application to use attached postgres database that is run on `postgres` host
-#    - python -V
     - export DATABASE_URL=postgres://postgres:@postgres:5432/python-test-app
     - apt-get update -qy
-#    - apt-get install -y python-dev python-pip
     - python -V
     - pip install -r requirements.txt
     - python manage.py test
