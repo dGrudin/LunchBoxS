@@ -4,7 +4,7 @@ stages:
 
 # Uncomment these lines if you would use tdd using selenium in your project
 UnitTest:
-   image: python:3.6
+   image: python:3.7
    stage: test
    before_script:
      - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
