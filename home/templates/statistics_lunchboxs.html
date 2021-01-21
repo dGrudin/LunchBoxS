@@ -1,0 +1,69 @@
+<div>
+    <div class="pop">
+        <h4>Популярные ланч-боксы</h4>
+        <canvas id="Chart1"></canvas>
+    </div>
+</div>
+<div class="period">
+    <h4>ПЕРИОД</h4>
+    <form action="">
+        <div class="start pday">
+            <p>День</p>
+            <p>Месяц</p>
+            <p>Год</p>
+            <input type="number" id="number_day_start" value="1" min="1" max="31">
+            <input type="number" id="number_month_start" value="1" min="1" max="12">
+            <input type="number" id="number_year_start" value="2020" min="2020" max="2030">
+        </div>
+        <div class="end pday">
+            <p>День</p>
+            <p>Месяц</p>
+            <p>Год</p>
+            <input type="number" id="number_day_end" value="1" min="1" max="31">
+            <input type="number" id="number_month_end" value="12" min="1" max="12">
+            <input type="number" id="number_year_end" value="2020" min="2020" max="2030">
+        </div>
+    </form>
+    <div class="form" id="form">
+        СФОРМИРОВАТЬ
+    </div>
+</div>
+<div class="graf" id="graf">
+</div>
+
+<script>
+    $( "#form" ).click(function() {
+    var z1 = $("#number_month_start").val();
+    var z2 = $("#number_year_start").val();
+    var z3 = $("#number_month_end").val();
+    var z4 = $("#number_year_end").val();
+    var d1 = $("#number_day_start").val();
+    var d2 = $("#number_day_end").val();
+    $('#graf').html('').load( "{% url 'lunchbox_graf' %}?month_start=" + z1 + "&year_start=" + z2 + "&month_end=" + z3 + "&year_end=" + z4
+    + "&day_start=" + d1 + "&day_end=" + d2);
+    });
+</script>
+<script>
+		var ctx = document.getElementById('Chart1').getContext('2d');
+		var chart = new Chart(ctx, {
+		    type: 'doughnut',
+		    data: {
+		        labels: [{% for lunch in list_lunchboxs %}'{{lunch.0}}',{% endfor %}],
+		        datasets: [{
+		            label: '',
+		            backgroundColor: [
+						'rgba(247, 84, 84, 1)',
+						'rgba(247, 84, 193, 1)',
+						'rgba(166, 84, 247, 1)',
+						'rgba(84, 209, 247, 1)',
+						'rgba(84, 247, 198, 1)',
+						'rgba(84, 247, 90, 1)',
+						'rgba(206, 250, 32, 1)',
+						'rgba(247, 84, 84,, 1)',
+					],
+		            data: [{% for lunch in list_lunchboxs %}{{lunch.1}},{% endfor %}],
+		        }]
+		    },
+		options: {}
+		});
+</script>

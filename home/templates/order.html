@@ -1,0 +1,28 @@
+{% extends "base_index.html" %}
+
+{% block title %}<title>LanchBox</title>{% endblock %}
+{% block style%}
+    {% load static %}
+    <link href="{% static 'css/order.css' %}" rel="stylesheet" >
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+{% endblock %}
+{% block body %}
+    <main>
+        <div class="order">
+            <h3>Заказ {{order.id}}</h3>
+            {% for com in order.order_compositions.all %}
+            <p>{{com.lunchbox.title}} - {{com.number}} шт.</p>
+            {% endfor %}
+            <p>Цена: {{order.price}} руб.</p>
+            <form class="readyForm" action="." method="post">
+                {% csrf_token %}
+                <input type="hidden" name="id_ready" id="id_id_ready" value="{{order.id}}">
+                <button class="ready-bn" type="submit">ГОТОВО</button>
+            </form>
+            <div class="readyForm back">
+                <a href="{% url 'employee'%}"><button class="ready-bn">НАЗАД</button></a>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

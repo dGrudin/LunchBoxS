@@ -1,0 +1,53 @@
+<div id="graf1">
+    <p>Количество выполненных заказов</p>
+    <canvas id="Chart1"></canvas>
+</div>
+<div id="graf2">
+    <p>Количество проданных ланч-боксов</p>
+    <canvas id="Chart2"></canvas>
+</div>
+<div id="graf3">
+    <p>Количество вырученной прибыли</p>
+    <canvas id="Chart3"></canvas>
+</div>
+<script>
+		var ctx = document.getElementById('Chart1').getContext('2d');
+		var chart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: [{% for order in list_order %}'{{order.1}}.{{order.0}}',{% endfor %}],
+		        datasets: [{
+		            label: '',
+		            borderColor: 'rgb(75, 104, 250)',
+		            data: [{% for order in list_order %}{{order.2}},{% endfor %}]
+		        }]
+		    },
+		options: {}
+		});
+		var ctx = document.getElementById('Chart2').getContext('2d');
+		var chart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: [{% for lunchbox in list_lunchbox %}'{{lunchbox.1}}.{{lunchbox.0}}',{% endfor %}],
+		        datasets: [{
+		            label: '',
+		            borderColor: 'rgb(88, 252, 252)',
+		            data: [{% for lunchbox in list_lunchbox %}{{lunchbox.2}},{% endfor %}]
+		        }]
+		    },
+		options: {}
+		});
+		var ctx = document.getElementById('Chart3').getContext('2d');
+		var chart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: [{% for order in list_order %}'{{order.1}}.{{order.0}}',{% endfor %}],
+		        datasets: [{
+		            label: '',
+		            borderColor: 'rgb(255, 130, 130)',
+		            data: [{% for order in list_order %}{{order.3}},{% endfor %}]
+		        }]
+		    },
+		options: {}
+		});
+</script>

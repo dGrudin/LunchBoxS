@@ -1,0 +1,354 @@
+@font-face {
+	font-family: "logo";
+	src: url("../fonts/logo.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+body{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #fdf5f9;
+	font-family: "logo";
+}
+
+header{
+	width: 100%;
+	height: 100%;
+	padding-bottom: 0;
+	border-bottom: 5px solid #4e5964;
+	margin-bottom: 0;
+}
+
+.logotip{
+	display: inline-block;
+	width: 78%;
+}
+
+.logotip h1{
+	width: 70%;
+	margin-left: 30%;
+	font-family: "logo";
+	font-size: 70px;
+	color: #4e5964;
+	text-align: center;
+	vertical-align: center;
+}
+
+.employee{
+
+	width: 20%;
+	display: inline-block;
+	margin-left: -4px;
+	border: 3px solid #4e5964;
+	vertical-align: top;
+	border-radius: 25px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.employee p{
+	text-align: center;
+	font-family: "logo";
+	margin-top: 20px;
+	margin-bottom: 0;
+	color: #4e5964;
+}
+
+.employee button{
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #4e5964;
+	border-radius: 10px;
+	border:0;
+	color: white;
+	font-family: "logo";
+}
+
+.employee a{
+    text-decoration:none;
+    color: white;
+	font-family: "logo";
+}
+
+.stat button{
+	width: 60%;
+	margin-left: 20%;
+	margin-top: 20px;
+	margin-bottom: 0;
+	background-color: #4e5964;
+	border-radius: 10px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	border:0;
+	color: white;
+	font-family: "logo";
+}
+
+main{
+    padding:0;
+    margin:0;
+	height: 100%;
+	width: 100%;
+}
+
+.menu{
+    margin-top:10px;
+    width:48%;
+    margin-left:24%;
+    color: white;
+	font-family: "logo";
+	text-align:center;
+	margin-bottom:0;
+}
+
+.menu div{
+    margin-left:6%;
+    background-color: #4e5964;
+    width:25%;
+    display: inline-block;
+    border-radius: 20px;
+    margin-bottom:10px;
+}
+
+#sales{
+    color: yellow;
+}
+
+.content{
+    margin-left: 4.3%;
+    border: 5px solid #4e5964;
+    border-radius: 10px;
+    width:90%;
+    height:100%;
+    margin-bottom:20px;
+
+}
+
+.sorting{
+    margin-top:20px;
+    width:40%;
+    background-color:#4e5964;
+    border-radius:25px;
+    height:100%;
+    margin-left:30%;
+}
+
+.sorting h4{
+    font-size: 22px;
+    color:white;
+    margin:0;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:center;
+    width:100%;
+}
+
+.sorting div{
+    font-size: 18px;
+    color:white;
+    margin:0;
+    margin-bottom:15px;
+    text-align:center;
+    width:35%;
+    display:inline-block;
+    margin-left:9%;
+    border: 3px solid white;
+    border-radius:15px;
+}
+
+#month{
+    color:yellow;
+}
+
+.sorting p{
+    margin:0;
+    padding:5px;
+}
+
+.graf-content{
+    margin:0;
+    padding:0;
+    margin-top:15px;
+    width:100%;
+}
+
+.period{
+    margin:0;
+    padding:0;
+    color:#4e5964;
+    width:40%;
+    margin-left:30%;
+}
+
+.period h4{
+    padding:0;
+    margin:0;
+    font-size: 20px;
+    text-align:center;
+}
+
+.period div{
+    width: 100%;
+    margin:0;
+    padding:0;
+}
+
+.period p{
+    display:inline-block;
+    margin:0;
+    text-align:center;
+    width:35%;
+    margin-left:10%;
+    padding:0;
+}
+
+.period input{
+    display:inline-block;
+    margin:0;
+    padding:0;
+    width:35%;
+    margin-left:10%;
+    text-align:center;
+}
+
+.end input{
+    margin-bottom:15px;
+}
+
+.pday input{
+    width:19%;
+}
+
+.pday p{
+    width:19%;
+}
+
+.period .form{
+    padding:0;
+    margin:0;
+    font-size: 15px;
+    text-align:center;
+    width:30%;
+    margin-left:35%;
+    color:white;
+    background-color:#4e5964;
+    margin-bottom:15px;
+    padding:5px;
+    border-radius:15px;
+}
+
+.graf{
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+}
+
+.graf div{
+    width: 50%;
+    margin-left:25%;
+    vertical-align:top;
+    margin-bottom:15px;
+}
+
+.graf p{
+    margin:0;
+    padding:0;
+    font-size: 20px;
+    color: #4e5964;
+    text-align:center;
+}
+
+.graf canvas{
+    margin-top:5px;
+}
+
+#graf1, #graf2{
+    width: 40%;
+    margin-left: 6.5%;
+    display: inline-block;
+}
+
+.pop{
+    margin:0;
+    padding:0;
+    width:50%;
+    margin-left:25%;
+}
+
+.pop h4{
+    margin:0;
+    padding:0;
+    text-align:center;
+    color:#4e5964;
+    font-size: 22px;
+    margin-top: 15px;
+    margin-bottom:10px;
+
+}
+
+.pop canvas{
+    margin:0;
+    padding:0;
+    width:100%;
+    margin-bottom:15px;
+}
+
+.lunchbox-graf{
+    width:70%;
+    margin-left: 15%;
+}
+
+.sot{
+    margin:0;
+    padding:0;
+    width:30%;
+    margin-left: 35%;
+}
+
+.sot h4{
+    font-size: 20px;
+    background-color:#4e5964;
+    margin:0;
+    padding:0;
+    padding:8px;
+    border-radius: 15px;
+    margin-bottom:10px;
+    text-align:center;
+    color: white;
+}
+
+.sot select{
+    text-align:center;
+    border: 3px solid #4e5964;
+    color: #4e5964;
+    font-size: 14px;
+    border-radius: 10px;
+    background-color:white;
+    width:50%;
+    margin:0;
+    padding:8px;
+    margin-left: 25%;
+    text-align-last:center;
+    margin-bottom:10px;
+}
+
+.sot option{
+    text-align:center;
+}
+
+.sform{
+    width:50%;
+    padding-left: 25%;
+}
+
+.sform h4{
+    font-size:16px;
+    padding: 5px;
+    margin-bottom:15px;
+}

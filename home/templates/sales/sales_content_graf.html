@@ -1,0 +1,32 @@
+<div class="period">
+    <h4>ПЕРИОД</h4>
+    <form action="">
+        <div class="start">
+            <p>Месяц</p>
+            <p>Год</p>
+            <input type="number" id="number_month_start" value="1" min="1" max="12">
+            <input type="number" id="number_year_start" value="2020" min="2020" max="2030">
+        </div>
+        <div class="end">
+            <p>Месяц</p>
+            <p>Год</p>
+            <input type="number" id="number_month_end" value="12" min="1" max="12">
+            <input type="number" id="number_year_end" value="2020" min="2020" max="2030">
+        </div>
+    </form>
+    <div class="form" id="form">
+        СФОРМИРОВАТЬ
+    </div>
+</div>
+<div class="graf" id="graf">
+</div>
+
+<script>
+    $( "#form" ).click(function() {
+    var z1 = $("#number_month_start").val();
+    var z2 = $("#number_year_start").val();
+    var z3 = $("#number_month_end").val();
+    var z4 = $("#number_year_end").val();
+    $('#graf').html('').load( "{% url 'sales_graf_month' %}?month_start=" + z1 + "&year_start=" + z2 + "&month_end=" + z3 + "&year_end=" + z4);
+    });
+</script>

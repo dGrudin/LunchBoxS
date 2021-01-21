@@ -1,0 +1,13 @@
+<div class="period" id="period">
+				{% for order in orders %}
+                    <div class="orderForm">
+                        <form action="." method="post">
+                        {% csrf_token %}
+                            <button class="order-bn" type="submit">
+                                <h3>ЗАКАЗ {{order.id}}</h3>
+                                <input type="hidden" name="id_ready" id="id_id_ready" value="{{order.id}}">
+                            </button>
+                        </form>
+                    </div>
+				{% endfor %}
+</div>

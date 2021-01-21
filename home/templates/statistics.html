@@ -1,0 +1,60 @@
+{% extends "base_index.html" %}
+
+{% block title %}<title>LanchBox</title>{% endblock %}
+{% block style%}
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    {% load static %}
+    <link href="{% static 'css/statistics.css' %}" rel="stylesheet" >
+{% endblock %}
+{% block body %}
+    <header>
+		<div class="logotip">
+			<h1>LunchBox</h1>
+		</div>
+
+		<div class="employee">
+			<p>Администратор:</p>
+			<p>{{userP.username}}</p>
+			<a class="stat" href="{% url 'administrator'%}"><button>ГЛАВНАЯ</button></a>
+            <a href="{% url 'logoutProfile'%}"><button>ВЫЙТИ</button></a>
+		</div>
+	</header>
+	<main>
+        <div class="menu">
+            <div id="sales">
+                <p>ПРОДАЖИ</p>
+            </div>
+            <div id="lunchboxs">
+                <p>ЛАНЧБОКСЫ</p>
+            </div>
+            <div id="employees">
+                <p>СОТРУДНИКИ</p>
+            </div>
+        </div>
+        <div class="content" id="content">
+            {% include 'statistics_sales.html' %}
+        </div>
+
+    </main>
+    <script>
+        $( "#employees" ).click(function() {
+            $('#content').html('').load( "{% url 'statistics_employee' %}");
+            $('#employees').css('color', 'yellow');
+            $('#sales').css('color', 'white');
+            $('#lunchboxs').css('color', 'white');
+        });
+        $( "#sales" ).click(function() {
+            $('#content').html('').load( "{% url 'statistics_sales' %}");
+            $('#sales').css('color', 'yellow');
+            $('#lunchboxs').css('color', 'white');
+            $('#employees').css('color', 'white');
+        });
+        $( "#lunchboxs" ).click(function() {
+            $('#content').html('').load( "{% url 'statistics_lunchboxs' %}");
+            $('#lunchboxs').css('color', 'yellow');
+            $('#sales').css('color', 'white');
+            $('#employees').css('color', 'white');
+        });
+    </script>
+{% endblock %}

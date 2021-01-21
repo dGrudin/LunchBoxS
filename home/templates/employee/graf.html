@@ -1,0 +1,19 @@
+<div id="employee_graf">
+    <p>Количество выполненных заказов</p>
+    <canvas id="Chart2"></canvas>
+</div>
+<script>
+		var ctx = document.getElementById('Chart2').getContext('2d');
+		var chart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: [{% for order in list_order %}'{{order.2}}.{{order.1}}.{{order.0}}',{% endfor %}],
+		        datasets: [{
+		            label: '',
+		            borderColor: 'rgb(75, 104, 250)',
+		            data: [{% for order in list_order %}{{order.3}},{% endfor %}]
+		        }]
+		    },
+		options: {}
+		});
+</script>

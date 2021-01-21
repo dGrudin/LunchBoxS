@@ -1,0 +1,75 @@
+{% extends "base_index.html" %}
+
+{% block title %}<title>LanchBox</title>{% endblock %}
+{% block style%}
+    {% load static %}
+    <link href="{% static 'css/style_ad.css' %}" rel="stylesheet" >
+{% endblock %}
+{% block body %}
+    <header>
+		<div class="logotip">
+			<h1>LunchBox</h1>
+		</div>
+
+		<div class="employee">
+			<p>Администратор:</p>
+			<p>{{userP.username}}</p>
+			<a class="stat" href="{% url 'statistics'%}"><button>СТАТИСТИКА</button></a>
+            <a href="{% url 'logoutProfile'%}"><button>ВЫЙТИ</button></a>
+		</div>
+	</header>
+	<main>
+		<div class="boxs">
+			{% for lb in lbs %}
+			<div class="lbox">
+				<h3>{{lb.title}}</h3>
+				<img src="{{MEDIA_URL}}{{ lb.img.url}}">
+				<p>Описание:</p>
+				<p>{{lb.description}}</p>
+				<p>Цена:</p>
+				<p class="price">{{lb.price}} руб.</p>
+
+				<form class="formkol" action="." method="post">
+					{% csrf_token %}
+					<p>Количество:</p>
+					<input type="hidden" name="id_lunchbox" id="id_id_lunchbox" value="{{lb.id}}">
+					<p><input type="number" style="text-align:center;" name="number" id="id_number" value="{{lb.numberoflunchbox.number}}" required></p>
+					<button type="submit" class="kol">ИЗМЕНИТЬ КОЛИЧЕСТВО</button>
+				</form>
+
+<a href="{% url 'lunchRedaction' lb.id %}"><button class="redaction">РЕДАКТИРОВАТЬ</button></a>
+
+				<form action="." method="post">
+					{% csrf_token %}
+					<input type="hidden" name="del_lunchbox" id="id_del_lunchbox" value="{{lb.id}}">
+					<button class="del" type="submit">УДАЛИТЬ</button>
+				</form>
+
+			</div>
+    		{% endfor %}
+			<div class="lbox">
+				<a href="{% url 'lunchCreate' %}"><button type="submit" class="add">ДОБАВИТЬ</button></a>
+			</div>
+		</div>
+		<div class="empls">
+			{% for user in users %}
+			<div class="empl">
+				{% if user.type.level == 1 %}
+				<h3>Сотрудник</h3>
+				{% else %}
+				<h3>Администратор</h3>
+				{% endif %}
+				<p class="eInfo">{{user.username}}</p>
+				<form action="." method="post">
+					{% csrf_token %}
+					<input type="hidden" name="id_user" id="id_id_user" value="{{user.id}}">
+					<button class="del" type="submit">УДАЛИТЬ</button>
+				</form>
+			</div>
+    		{% endfor %}
+			<div class="empl">
+				<a href="{% url 'emplCreate' %}"><button type="submit" class="add">ДОБАВИТЬ</button></a>
+			</div>
+		</div>
+	</main>
+{% endblock %}

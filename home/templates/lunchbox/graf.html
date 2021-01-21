@@ -1,0 +1,30 @@
+<div class="lunchbox-graf">
+    <p>Популярность ланч-боксов за период c {{start_date}} по {{end_date}}</p>
+    <canvas id="Chart2"></canvas>
+</div>
+
+<script>
+		var ctx = document.getElementById('Chart2').getContext('2d');
+		var chart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+		        labels: [{% for order in list_lunchbox %}'{{order.0}}',{% endfor %}],
+		        datasets: [{
+		            label: '',
+		            borderColor: 'rgb(75, 104, 250)',
+		            backgroundColor: [
+						'rgba(247, 84, 84, 1)',
+						'rgba(247, 84, 193, 1)',
+						'rgba(166, 84, 247, 1)',
+						'rgba(84, 209, 247, 1)',
+						'rgba(84, 247, 198, 1)',
+						'rgba(84, 247, 90, 1)',
+						'rgba(206, 250, 32, 1)',
+						'rgba(247, 84, 84,, 1)',
+					],
+		            data: [{% for order in list_lunchbox %}{{order.1}},{% endfor %}]
+		        }]
+		    },
+		options: {}
+		});
+</script>

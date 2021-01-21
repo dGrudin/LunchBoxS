@@ -1,0 +1,31 @@
+{% block title %}<title>LanchBox</title>{% endblock %}
+{% block style%}
+    {% load static %}
+    <link href="{% static 'css/style_lunch.css' %}" rel="stylesheet" >
+{% endblock %}
+{% block body %}
+    <div class="entry">
+        {% load static %}
+		<h1>Добавление сотрудника</h1>
+		<form method="post" action=".">
+			{% csrf_token %}
+		    <table>
+		        <tr>
+
+		            <td><p>Имя пользователя:</p><input type="text" name="username" maxlength="150" autofocus required id="id_username"></td>
+		        </tr>
+		        <tr>
+
+		            <td><p>Пароль:</p><input type="password" name="password1" required id="id_password1"></td>
+		        </tr>
+		        <tr>
+
+		            <td><p>Подтвердите пароль:</p><input type="password" name="password2" required id="id_password2"></td>
+		        </tr>
+		        <tr>
+		            <td><input type="submit" value="ДОБАВИТЬ"></td>
+		        </tr>
+		    </table>
+		</form>
+	</div>
+{% endblock %}

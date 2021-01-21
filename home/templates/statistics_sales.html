@@ -1,0 +1,22 @@
+<div>
+    <div class="sorting">
+        <h4>Статистика продаж по</h4>
+        <div id="month"><p>месяцам</p></div>
+        <div id="day"><p>дням</p></div>
+    </div>
+    <script>
+        $( "#month" ).click(function() {
+            $('#graf-content').html('').load( "{% url 'sales_content' %}");
+            $('#month').css('color', 'yellow');
+            $('#day').css('color', 'white');
+        });
+        $( "#day" ).click(function() {
+            $('#graf-content').html('').load( "{% url 'sales_content_day' %}");
+            $('#day').css('color', 'yellow');
+            $('#month').css('color', 'white');
+        });
+    </script>
+    <div class="graf-content" id="graf-content">
+        {% include 'sales/sales_content_graf.html' %}
+    </div>
+</div>

@@ -1,0 +1,70 @@
+{% extends "base_index.html" %}
+
+{% block title %}<title>LanchBox</title>{% endblock %}
+{% block style%}
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" >
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	{% endblock %}
+{% block body %}
+	<header>
+		<div class="search">
+			<form action="." method="post">
+				{% csrf_token %}
+  				<input type="number" name="id_search" id="id_id_search" autofocus placeholder="Искать по номеру заказа...">
+  				<button type="submit"></button>
+			</form>
+			<div class="status">
+            <form action="." method="post">
+                {% csrf_token %}
+				<h3>Режим заполненного зала</h3>
+                {% if st == 0 %}
+				<input type="hidden" name="id_status" value="1">
+				<button type="submit">
+					<p>ВКЛЮЧИТЬ</p>
+				</button>
+                {% else %}
+				<input type="hidden" name="id_status" value="0">
+				<button type="submit">
+					<p style="color: yellow;">ВЫКЛЮЧИТЬ</p>
+				</button>
+                {% endif %}
+            </form>
+        </div>
+
+		</div>
+
+		<div class="logotip">
+			<h1>LunchBox</h1>
+		</div>
+
+		<div class="employee">
+			<p>Сотрудник:</p>
+			<p>{{userP.username}}</p>
+			<a href="{% url 'logoutProfile'%}"><button>ВЫЙТИ</button></a>
+		</div>
+	</header>
+
+	<main>
+		<div class="prepare" id="prepare">
+			<!--блок заказов во временном промежутке -->
+			<script type="text/javascript">
+					function refresh() {
+						$('#period').html('').load(
+						"{% url 'prepare' %}");
+						return false;
+					}
+
+					$(function () {
+						setInterval('refresh()', 10000);
+						return false;
+					});
+			</script>
+			{% include 'prepare.html' %}
+		</div>
+	</main>
+
+	<footer>
+	</footer>
+{% endblock %}

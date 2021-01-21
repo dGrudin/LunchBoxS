@@ -1,0 +1,23 @@
+{% block title %}<title>LanchBox</title>{% endblock %}
+{% block style%}
+    {% load static %}
+    <link href="{% static 'css/style_lunch.css' %}" rel="stylesheet" >
+{% endblock %}
+{% block body %}
+    <div class="entry">
+        {% load static %}
+		<h1>Уровень</h1>
+		<form method="post" action=".">
+			{% csrf_token %}
+		    <table>
+		        <tr>
+		            <td>
+						<button class="level" type="submit" name="level" value="1">СОТРУДНИК</button>
+						<button class="level" type="submit" name="level" value="2">АДМИНИСТРАТОР</button>
+                    </td>
+
+		        </tr>
+		    </table>
+		</form>
+	</div>
+{% endblock %}

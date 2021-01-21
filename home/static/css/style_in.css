@@ -1,0 +1,65 @@
+@font-face {
+	font-family: "logo";
+	src: url("../fonts/logo.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+body{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #fdf5f9;
+	font-family: "logo";
+}
+
+.entry{
+	margin-top: 100px;
+	width: 40%;
+	padding-left: 30%;
+}
+
+.entry img{
+	width: 40%;
+	margin-left: 30%;
+}
+
+.entry h1{
+	color: #ff6568;
+	text-align: center;
+	font-size: 40px;
+}
+
+.entry table{
+	width: 50%;
+	margin-left: 25%;
+}
+
+.entry table tr{
+    width:100%;
+}
+
+entry table tr td{
+    width:100%;
+}
+
+
+.entry input{
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 20px;
+	padding: 5px;
+	border-radius: 10px;
+	border: 3px solid #4e5964;
+	font-family: "logo";
+}
+
+input[type=submit]{
+	width: 50%;
+	margin-left: 25%;
+	background-color: #ff6568;
+	color: white;
+	border: 0;
+}
+
