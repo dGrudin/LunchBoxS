@@ -10,7 +10,7 @@ test:
     - apt-get update -qy
     - python -V
     - pip install -r requirements.txt
-    - python manage.py runserver
+    - python manage.py runserver 8000 &
     - python manage.py test
 
 Deployment:
